@@ -1,0 +1,75 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div class="footer-container">
+    <div class="footer">
+        <?php echo $this->getChildHtml() ?>
+        <!--<p class="bugs"><?php echo $this->__('Help Us to Keep Magento Healthy') ?> - <a href="http://www.magentocommerce.com/bug-tracking" onclick="this.target='_blank'"><strong><?php echo $this->__('Report All Bugs') ?></strong></a> <?php echo $this->__('(ver. %s)', Mage::getVersion()) ?></p>
+        <address><?php //echo $this->getCopyright() ?></address> -->
+        
+        
+        <!-- news letter start -->
+        <div class="block block-subscribe">
+
+	<?php
+                $page = Mage::app()->getFrontController()->getRequest()->getRouteName();
+                //echo 'page'. $page;
+                if ($page == 'cms'):
+                        //echo Mage::getSingleton('cms/page')->getIdentifier();
+        ?>
+
+            <div class="block-title">
+                <strong style="background-image: url('../images/i_block-subscribe1.gif');"><span><?php //echo $this->__('Newsletter') ?></span></strong>
+            </div>
+            <form action="/artist/index.php/newsletter/subscriber/new/" method="post" id="newsletter-validate-detail">
+                <div class="block-content">
+                    <div class="form-subscribe-header">
+                        <label for="newsletter"><?php echo $this->__('Sign Up for Our Newsletter:') ?></label>
+                    </div>
+                    <div class="input-box">
+                    <input style="display: inline;" type="text" name="email" id="newsletter" title="<?php echo $this->__('Sign up for our newsletter') ?>" class="input-text required-entry validate-email" />
+                    </div>
+                    <div class="actions_">
+                        <button type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button"><span><span><?php echo $this->__('Subscribe') ?></span></span></button>
+                    </div>
+                </div>
+            </form>
+            <script type="text/javascript">
+            //<![CDATA[
+                var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+            //]]>
+            </script>
+       <?php
+            endif;
+	?>    <!-- 
+            <div class="form-subscribe-header" style="text-align: right;">
+                        <label for="newsletter"><?php echo $this->__('Powered By : ') ?><a href="http://www.podamibe.co.uk/" target="_blank"><?php echo $this->__('Podamibe') ?></a></label>
+            </div> -->
+        </div>
+        <!-- news letter ends -->
+        
+    </div>
+</div>

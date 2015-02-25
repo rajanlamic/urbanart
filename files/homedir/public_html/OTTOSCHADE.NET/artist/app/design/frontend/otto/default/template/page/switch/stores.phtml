@@ -1,0 +1,77 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php 
+/**
+ * Store switcher template
+ *
+ * @see Mage_Core_Block_Store_Switcher
+ */
+?>
+
+<!-- Start of Globel Code -->
+<div style="width:200px; float: left;">
+    <!--
+<CENTER>
+<script language="JavaScript">
+var count = "rajan2";          // Change Your Account?
+var type = "crt";       // Change Your Counter Image?
+var digits = "5";          // Change The Amount of Digits on Your Counter?
+var prog = "unique";          // Change to Either hit/unique?
+var statslink = "yes";    // provide statistical link in counter yes/no?
+var sitelink = "yes";     // provide link back to our site;~) yes/no?
+var cntvisible = "yes"; // do you want counter visible yes/no?
+</script>
+<script language="JavaScript" src="http://005.free-counters.co.uk/count-070.js">
+</script>
+<noscript>
+<a href="http://www.free-counters.co.uk" target="_blank">
+<img  src="http://005.free-counters.co.uk/count-070.pl?count=rajan2&cntvisible=no&mode=noscript" alt="Free Counters" title="Free Counters" border="0">
+</a>The following text will not be seen after you upload your website,
+please keep it in order to retain your counter functionality 
+<br><a href="http://www.free-counters.co.uk/trackers/" target="_blank">Trackers</a><br> <a href="http://www.free-counters.co.uk/help/counter/" target="_blank">Counter Help</a><br>
+
+</noscript>
+</CENTER>  
+    -->
+    <img border="0" src="http://cc.amazingcounters.com/counter.php?i=3107121&c=9321676" alt="webpage tracking statistics">
+ </div>
+<!-- End of Globel Code -->
+
+<?php if(count($this->getGroups())>1): ?>
+<div class="store-switcher">
+    <label for="select-store"><?php echo $this->__('Select Store:') ?></label>
+    <select id="select-store" title="<?php echo $this->__('Select Store') ?>" onchange="location.href=this.value">
+    <?php /*foreach ($this->getStores() as $_store): ?>
+        <option value="<?php echo $_store->getUrl('') ?>"<?php if($_store->getId()==$this->getCurrentStoreId()): ?> selected="selected"<?php endif; ?>><?php echo $_store->getName() ?></option>
+    <?php endforeach;*/ ?>
+    <?php foreach ($this->getGroups() as $_group): ?>
+        <?php $_selected = ($_group->getId()==$this->getCurrentGroupId()) ? ' selected="selected"' : '' ?>
+        <option value="<?php echo $_group->getHomeUrl() ?>"<?php echo $_selected ?>><?php echo $this->htmlEscape($_group->getName()) ?></option>
+    <?php endforeach; ?>
+    </select>
+</div>
+<?php endif; ?>
