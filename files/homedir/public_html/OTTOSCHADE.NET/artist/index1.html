@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Ottoschade Homepage</title>
+<style>
+#imageGallary { background-image:url('img/background.png'); width: 850px; height: 638px; margin: auto;}
+</style>
+<script>
+var animateGallary;
+var imageCount = 64;
+function showGallary()
+{
+	if (imageCount < 1)
+	{
+		imageCount = 64;
+	}
+	document.getElementById("imageGallary").innerHTML = "<img src='img/o/" + imageCount + ".png'>";
+	//document.getElementById("imageGallary").style.backgroundImage = "url('img/o/" + imageCount + ".png')";
+	imageCount--;
+}
+function animateGallary()
+{
+	animateGallary = setInterval(showGallary, 200);
+}
+</script>
+</head>
+<body onload="animateGallary();">
+	<div id="imageGallary"><div id="imageGallaryIn"></div></div>
+</body>
+</html>
